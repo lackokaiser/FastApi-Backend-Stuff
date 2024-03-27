@@ -7,17 +7,11 @@ This is a FastAPI project designed for Assignment 1.
 
 To run this project locally, you need to have Python and pip installed on your machine.
 
-1. Clone this repository:
-```bash
-  git clone https://github.com/frdayvz85/assignment1.git
-  or
-  git@github.com:frdayvz85/assignment1.git
-```   
-2. Navigate into the project directory:
+1. Navigate into the project directory:
 ```bash
   cd assignment1
 ```   
-3. Create a virtual enviroment:
+2. Create a virtual enviroment:
 ```bash
   python -m venv venv
   or
@@ -25,7 +19,7 @@ To run this project locally, you need to have Python and pip installed on your m
   or
   py3 -m venv venv
 ```
-4. Active a virtualenv
+3. Active a virtualenv
 ```bash
   Windows users from CMD run this command:
   .\venv\Scripts\activate.bat
@@ -36,11 +30,11 @@ To run this project locally, you need to have Python and pip installed on your m
   Linux or Mac users run this command:
   source venv/bin/activate
 ```  
-5. Install the requirements in the current environment:
+4. Install the requirements in the current environment:
 ```bash
   pip install -r requirements.txt
 ```  
-6. Last step run the following command:
+5. Last step run the following command:
 ```bash
   py app/main.py
 ```  
