@@ -37,19 +37,44 @@ async def get_event_by_id(event_id: int):
 
     raise HTTPException(status_code=404, detail="Event not found!")
 
+
 @router.post("/events", response_model=Event)
 async def create_event(event: Event):
-    pass
+    events = EventFileManager()
+
+    list = events.read_events_from_file()
+    for e in list:
+        if e.id == event.id:
+            raise HTTPException(status_code=400, detail="Event ID already exists!")
+    list.append(event)
+
+    events.write_events_to_file(list)
 
 
 @router.put("/events/{event_id}", response_model=Event)
 async def update_event(event_id: int, event: Event):
-    pass
+    events = EventFileManager()
+    list = events.read_events_from_file()
+
+    for i in range(len(list)):
+        e = list[i]
+        if event_id == e.id:
+            list[i] = event
+            return
+    raise HTTPException(status_code=404, detail="Event not found!")
 
 
 @router.delete("/events/{event_id}")
 async def delete_event(event_id: int):
-    pass
+    events = EventFileManager()
+    list = events.read_events_from_file()
+
+    for i in range(len(list)):
+        e = list[i]
+        if e.id == event_id:
+            list.remove(e)
+            return
+    raise HTTPException(status_code=404, detail="Event not found")
 
 
 @router.get("/events/joiners/multiple-meetings")
