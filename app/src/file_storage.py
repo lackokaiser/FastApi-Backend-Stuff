@@ -1,12 +1,12 @@
 import json
-import models
+from .models import Event
 
 
 class EventFileManager():
     FILE_PATH = "event.json"
 
     def decode(self, dict):
-        event = models.Event.model_validate(dict)
+        event = Event.model_validate(dict)
         return event
 
     def read_events_from_file(self):
@@ -25,7 +25,3 @@ class EventFileManager():
 
         f = open(self.FILE_PATH, "w")
         f.write(listStr)
-
-event = EventFileManager()
-
-event.write_events_to_file(event.read_events_from_file())
