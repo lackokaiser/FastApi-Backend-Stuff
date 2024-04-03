@@ -1,22 +1,42 @@
 [
     {
-        "id": 1,
-        "name": "Test event 1",
         "date": "2024-03-06",
-        "organizer": {
-            "name": "fdev",
-            "email": "fdev@example.com"
-        },
-        "status": "active",
-        "type": "event",
+        "id": 1,
         "joiners": [
             {
-                "name": "Test User",
+                "country": "Hungary",
                 "email": "test@test.com",
-                "country": "Hungary"
+                "name": "Test User"
             }
         ],
         "location": "Budapest, Hungary",
-        "max_attendees": 100
+        "max_attendees": 100,
+        "name": "Test event 1",
+        "organizer": {
+            "email": "fdev@example.com",
+            "name": "fdev"
+        },
+        "status": "active",
+        "type": "event"
+    },
+    {
+        "date": "1988.01.01",
+        "id": 0,
+        "joiners": [
+            {
+                "country": "string",
+                "email": "string",
+                "name": "string"
+            }
+        ],
+        "location": "string",
+        "max_attendees": 0,
+        "name": "faszr\u00e1g\u00f3 fa",
+        "organizer": {
+            "email": "string",
+            "name": "string"
+        },
+        "status": "string",
+        "type": "string"
     }
 ]

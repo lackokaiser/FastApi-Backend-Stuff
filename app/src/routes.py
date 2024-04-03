@@ -49,6 +49,7 @@ async def create_event(event: Event):
     list.append(event)
 
     events.write_events_to_file(list)
+    return event
 
 
 @router.put("/events/{event_id}", response_model=Event)
@@ -59,8 +60,11 @@ async def update_event(event_id: int, event: Event):
     for i in range(len(list)):
         e = list[i]
         if event_id == e.id:
+            if event.id != e.id:
+                raise HTTPException(status_code=300, detail="Event with different ID detected")
             list[i] = event
-            return
+            events.write_events_to_file(list)
+            return event
     raise HTTPException(status_code=404, detail="Event not found!")
 
 
@@ -73,6 +77,7 @@ async def delete_event(event_id: int):
         e = list[i]
         if e.id == event_id:
             list.remove(e)
+            events.write_events_to_file(list)
             return
     raise HTTPException(status_code=404, detail="Event not found")
 
